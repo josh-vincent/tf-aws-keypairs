@@ -1,9 +1,10 @@
 terraform {
+  # first in terminal run `terraform login`
   cloud {
     organization = "jvinnie-test"
     #hostname = "app.terraform.io" # Optional; defaults to app.terraform.io
     workspaces {
-      tags = ["test", "source:cli"]
+      name = "tf-aws-keypairs"
     }
   }
 
@@ -13,5 +14,9 @@ terraform {
       version = "4.6.0"
     }
   }
+}
+
+provider "aws" {
+  region = "ap-southeast-2"
 }
 
